@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>An Automatic Drink Dispenser Based on Arduino | This is Will</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基于Arduino开发板的自动饮料机设计与开发 An Automatic Drink Dispenser Based on Arduino开发人员：Will, Richard, Xavi, HarryDevelopers: Will, Richard, Xavi, Harry 大学期间借机器人课程，我与其他几名同学一起自主设计了一台自动饮料机，该机器可根据用户购买特定的饮料杯自动注入相应的饮料，并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An Automatic Drink Dispenser Based on Arduino">
+<meta property="og:url" content="http://www.hiwilllee.com/2020/02/22/An-Automatic-Drink-Dispenser-Based-on-Arduino/index.html">
+<meta property="og:site_name" content="This is Will">
+<meta property="og:description" content="基于Arduino开发板的自动饮料机设计与开发 An Automatic Drink Dispenser Based on Arduino开发人员：Will, Richard, Xavi, HarryDevelopers: Will, Richard, Xavi, Harry 大学期间借机器人课程，我与其他几名同学一起自主设计了一台自动饮料机，该机器可根据用户购买特定的饮料杯自动注入相应的饮料，并">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//1.png">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//2.png">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//3.png">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//4.png">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//5.png">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//6.jpeg">
+<meta property="og:image" content="http://www.hiwilllee.com/.com//7.jpeg">
+<meta property="article:published_time" content="2020-02-22T00:13:02.000Z">
+<meta property="article:modified_time" content="2020-02-22T00:26:37.107Z">
+<meta property="article:author" content="Dongheng Li (Will)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.hiwilllee.com/.com//1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="This is Will" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">This is Will</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.hiwilllee.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-An-Automatic-Drink-Dispenser-Based-on-Arduino" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/22/An-Automatic-Drink-Dispenser-Based-on-Arduino/" class="article-date">
+  <time datetime="2020-02-22T00:13:02.000Z" itemprop="datePublished">2020-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      An Automatic Drink Dispenser Based on Arduino
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于Arduino开发板的自动饮料机设计与开发-An-Automatic-Drink-Dispenser-Based-on-Arduino"><a href="#基于Arduino开发板的自动饮料机设计与开发-An-Automatic-Drink-Dispenser-Based-on-Arduino" class="headerlink" title="基于Arduino开发板的自动饮料机设计与开发 An Automatic Drink Dispenser Based on Arduino"></a>基于Arduino开发板的自动饮料机设计与开发 An Automatic Drink Dispenser Based on Arduino</h1><p>开发人员：<em>Will, Richard, Xavi, Harry</em><br>Developers: <em>Will, Richard, Xavi, Harry</em></p>
+<p>大学期间借机器人课程，我与其他几名同学一起自主设计了一台自动饮料机，该机器可根据用户购买特定的饮料杯自动注入相应的饮料，并有注水提醒、管理员模式等功能。</p>
+<a id="more"></a>
+
+<p><img src="/.com//1.png" alt="Designed Drawing"></p>
+<h2 id="Materials："><a href="#Materials：" class="headerlink" title="Materials："></a>Materials：</h2><ul>
+<li>Panel: Arduino</li>
+<li>RFID-RC522 reader, multiple RFID labels</li>
+<li>Water pump x 2，water tank x 2</li>
+<li>Others：Infrared sensor、loudspeaker</li>
+<li>Power：5 x five AA batteries</li>
+<li>Box: acrylic transparent plate x 6</li>
+</ul>
+<h2 id="Processes："><a href="#Processes：" class="headerlink" title="Processes："></a>Processes：</h2><ol>
+<li>Firstly, we will give each paper cup different Radio Frequency Identification Devices (RFID) which will decide what kind of drinks will come out.<br><img src="/.com//2.png" alt></li>
+<li>Then, we will use infrared sensor to figure out whether there is a paper cup putting on our machine or not.<br><img src="/.com//3.png" alt></li>
+<li>After confirming the paper cup is on our machine, corresponding drinks will come out automatically for user.</li>
+<li>To deal with how to pumping the water, we use 2 water pumps to support the power and use water pipes to pump the water.<br><img src="/.com//4.png" alt></li>
+<li>In order to let our Smart Water Dispense to “speak” smartly, we add a loudspeaker in our system. The system will broadcast the message to the user when the drink come out from the system.<br><img src="/.com//5.png" alt></li>
+</ol>
+<h2 id="Matters-need-attention"><a href="#Matters-need-attention" class="headerlink" title="Matters need attention"></a>Matters need attention</h2><ol>
+<li><strong>Container selection</strong>: we choosed two one-liter bottles as we water tanks. We drill a hole at the top of the tanks so that we can put the water pipes into them. About the water pipes, we decided to use two water pipes for per tank, one pipe for the water outflow from the tanks and one for the water inflow into the paper cup with RFID.</li>
+<li><strong>Hydrodynamic supply</strong>:  In order to maintain a steady drink supply, we used two pumps to transport the water from the water tank. Once the RFID identify a right paper cup and the infrared sensor detect a paper cup on our machine, the pumps will work. In addition, the RFID will choose which pumps will work.</li>
+<li><strong>Loudspeaker and buzzer remind</strong>: At the final step, we design to add a loudspeaker in our system, we record a voice message in the loudspeaker chip. To remind the user during they are using the Smart Water Dispenser:<ol>
+<li>It will broadcast a voice when finish delivering water.</li>
+<li>It will give 3 warning signals when the administrator starts sleep mood by using administrator cards in RFID including fields.<ol>
+<li>In admin mood, it will give 2 warning signals if there are some cup with RFID want to get water.</li>
+<li>The sleep mood will be turn off when the administrator uses cards in RFID including fields again.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><p><img src="/.com//6.jpeg" alt><br><img src="/.com//7.jpeg" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hiwilllee.com/2020/02/22/An-Automatic-Drink-Dispenser-Based-on-Arduino/" data-id="ck6wv6e0b0000bym18aq87mgx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/08/Volkswagen%20Emissions%20Scandal%20(Dieselgate,%20Emissionsgate)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Volkswagen Emissions Scandal (Dieselgate, Emissionsgate)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/22/An-Automatic-Drink-Dispenser-Based-on-Arduino/">An Automatic Drink Dispenser Based on Arduino</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/08/Volkswagen%20Emissions%20Scandal%20(Dieselgate,%20Emissionsgate)/">Volkswagen Emissions Scandal (Dieselgate, Emissionsgate)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Dongheng Li (Will)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
