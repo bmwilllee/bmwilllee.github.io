@@ -7,18 +7,18 @@
   
   <title>Data Mining | K-nearest Neighbour(K-NN) Classifier Implementation | You Are Finally Here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Author: Li Dongheng  _The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account">
+  <meta name="description" content="Author: Li Dongheng  The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Mining | K-nearest Neighbour(K-NN) Classifier Implementation">
 <meta property="og:url" content="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/index.html">
 <meta property="og:site_name" content="You Are Finally Here">
-<meta property="og:description" content="Author: Li Dongheng  _The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account">
+<meta property="og:description" content="Author: Li Dongheng  The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/1.png">
 <meta property="og:image" content="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/2.png">
 <meta property="og:image" content="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/3.png">
 <meta property="article:published_time" content="2020-02-24T22:58:38.000Z">
-<meta property="article:modified_time" content="2020-02-25T00:53:11.047Z">
+<meta property="article:modified_time" content="2020-02-25T01:10:17.461Z">
 <meta property="article:author" content="Dongheng Li (Will)">
 <meta property="article:tag" content="Data Mining">
 <meta name="twitter:card" content="summary">
@@ -103,7 +103,7 @@
       
         <p>Author: Li Dongheng</p>
 <hr>
-<p>_The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account 80% and 20% of separately. After validation by testing different k, the highest accuracy produced by the classifier was 90.44% when k equals to 3 or 4.</p>
+<p>The Manhattan Distance was used to decide the distance between the data record, and originally training set was separated into training set and validation set, which take account 80% and 20% of separately. After validation by testing different k, the highest accuracy produced by the classifier was 90.44% when k equals to 3 or 4.</p>
 <hr>
 <a id="more"></a>
 <h2 id="Introduction-to-K-NN"><a href="#Introduction-to-K-NN" class="headerlink" title="Introduction to K-NN"></a>Introduction to K-NN</h2><p>The k-nearest neighbours algorithm (k-NN) is a non-parametric method used for classification and regression [1]. This algorithm first stores all training samples, then analyses (including election, calculation of weighted sum, etc.) the K nearest neighbours around a new sample, and then marks the new sample as the class with the highest frequency in the k-nearest neighbour point. This approach is sometimes called “instance-based learning” or “lazy learning”, in which we search for the nearest known eigenvector for a given input in order to predict it.</p>
@@ -121,8 +121,12 @@
 d(p, q)=\sum\limits_{i=1}^{n}\mid p_{i}-q_{i}\mid</script><h3 id="Training-Data-validation-data-and-Testing-data"><a href="#Training-Data-validation-data-and-Testing-data" class="headerlink" title="Training Data, validation data and Testing data"></a>Training Data, validation data and Testing data</h3><p>The original training set includes 1253 data records, in order to evaluate the accuracy of classifier, 80% of the data is extracted as training data and rest 20% as validating data.<br><strong>_Training phase:_</strong></p>
 <ul>
 <li>Training set: 1002 columns</li>
-<li>Validating set: 251 columns<br><strong>_Testing phase:_</strong></li>
-<li>Training set: 1253 columns<br>Testing set: 100 columns</li>
+<li>Validating set: 251 columns</li>
+</ul>
+<p><strong>_Testing phase:_</strong></p>
+<ul>
+<li>Training set: 1253 columns</li>
+<li>Testing set: 100 columns</li>
 </ul>
 <h3 id="Modules-and-Tools"><a href="#Modules-and-Tools" class="headerlink" title="Modules and Tools"></a>Modules and Tools</h3><p>Since Python has rich modules for data processing, I used Python to implement K-NN. Here are modules I used.</p>
 <ul>
@@ -140,8 +144,9 @@ d(p, q)=\sum\limits_{i=1}^{n}\mid p_{i}-q_{i}\mid</script><h3 id="Training-Data-
 <li>Output the class with most frequency as predicted result and store result in an array.</li>
 <li>Applying the procedures above (3 to 7) to rest of validating set.</li>
 <li>Calculating accuracy by counting total number of matches between predictions and given classes of validating set (Figure 1).</li>
-<li>Apply classifier to testing set, and store prediction result.<br><img src="/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/1.png" alt="Figure 1: Results as k=3"></li>
+<li>Apply classifier to testing set, and store prediction result.</li>
 </ol>
+<p><img src="/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/1.png" alt="Figure 1: Results as k=3"></p>
 <hr>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Manhattan-Distance"><a href="#Manhattan-Distance" class="headerlink" title="Manhattan Distance"></a>Manhattan Distance</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># Manhattan_Distance</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Manhattan</span><span class="params">(vec1, vec2)</span>:</span></span><br><span class="line">    npvec1, npvec2 = np.array(vec1), np.array(vec2)</span><br><span class="line">    <span class="keyword">return</span> np.abs(npvec1-npvec2).sum()</span><br></pre></td></tr></table></figure>
 <h3 id="K-NN-Implementation-for-a-single-row-of-testing-record"><a href="#K-NN-Implementation-for-a-single-row-of-testing-record" class="headerlink" title="K-NN Implementation for a single row of testing record."></a>K-NN Implementation for a single row of testing record.</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">KnnOneRecord</span><span class="params">(vec, k, data, lineNum)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># vec: single test record</span></span><br><span class="line">    <span class="comment"># k: k-index (KNN)</span></span><br><span class="line">    <span class="comment"># data: all-data</span></span><br><span class="line">    <span class="comment"># LineNum: number of training data</span></span><br><span class="line">    <span class="comment"># InPut: single item in vector</span></span><br><span class="line">    <span class="comment"># OutPut: class</span></span><br><span class="line">    </span><br><span class="line">    trainData = data.loc[:lineNum] <span class="comment"># extract training data</span></span><br><span class="line">    dists = np.zeros(trainData.shape[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> trainData.index:</span><br><span class="line">        dist = Manhattan(vec, trainData.loc[line].values[:<span class="number">-1</span>])</span><br><span class="line">        dists[line] = dist</span><br><span class="line"></span><br><span class="line">    trainData.insert(<span class="number">10</span>,<span class="string">"dist"</span>, dists) <span class="comment"># insert distance column</span></span><br><span class="line">    indices = trainData.sort_values(by=[<span class="string">"dist"</span>]) <span class="comment"># sort data with DES</span></span><br><span class="line">    target = indices[:k] <span class="comment"># get k-nearest records</span></span><br><span class="line">    </span><br><span class="line">    classCount = &#123;&#125; <span class="comment">#Dic</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> target.index:</span><br><span class="line">        label = target.loc[line].values[<span class="number">-2</span>]</span><br><span class="line">        classCount[label] = classCount.get(label, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    sortedCount = dict(sorted(classCount.items(), key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">return</span> max(sortedCount, key=sortedCount.get) <span class="comment"># return the most one</span></span><br></pre></td></tr></table></figure>
@@ -156,9 +161,6 @@ d(p, q)=\sum\limits_{i=1}^{n}\mid p_{i}-q_{i}\mid</script><h3 id="Training-Data-
 <tr>
 <th></th>
 <th><strong>PREDICTED CLASS</strong></th>
-<th></th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -216,7 +218,7 @@ Accuracy = \frac{C(1|0)+C(0|0)+C(-1|-1)}{N}</script><h3 id="Choosing-the-value-o
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/" data-id="ck716o7y80001g2m14oqrdbm3" class="article-share-link">Share</a>
+      <a data-url="http://bmwilllee.github.io/2020/02/25/Data-Mining-K-NN-Classifier-Implementation/" data-id="ck71730690001kkm10aru9o4l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Mining/" rel="tag">Data Mining</a></li></ul>
